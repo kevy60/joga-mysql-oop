@@ -10,7 +10,7 @@ class ArticleModel extends BaseSQLModel {
         return articles
     }
 
-    async findOne(slug){
+    async findOne(slug) {
         const article = await super.findOne('slug', slug)
         return article
     }
@@ -21,9 +21,14 @@ class ArticleModel extends BaseSQLModel {
         return articles
     }
 
-    async create(article){
+    async create(article) {
         const createdArticleId = await super.create(article)
         return createdArticleId
+    }
+
+    async update(id, date) {
+        const editedArticle = await super.update(id, date)
+        return editedArticle
     }
 }
 module.exports = ArticleModel;
