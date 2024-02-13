@@ -1,4 +1,4 @@
-const pool = require('../utils/'); 
+const pool = require('../utils/db'); 
 
 class BaseSQLModel {
   constructor(tableName) {
@@ -32,7 +32,7 @@ class BaseSQLModel {
   async create(data) {
     const query = `INSERT INTO ${this.tableName} SET ?`;
     const result = await this.executeQuery(query, data);
-    return result.insertId;
+    return result.insertId
   }
 
   async findOne(where, value) {
